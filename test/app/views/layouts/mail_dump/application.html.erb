@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>MailDump</title>
+  <%= stylesheet_link_tag    "mail_dump/application", :media => "all" %>
+  <%= javascript_include_tag "mail_dump/application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <%= link_to "home", logged_mail_index_path %>
+  <hr />
+  <%= yield %>
+</body>
+</html>

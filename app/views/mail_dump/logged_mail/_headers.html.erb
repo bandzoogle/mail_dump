@@ -1,0 +1,27 @@
+<div id="message_headers">
+  <dl>
+    <dt>From:</dt>
+    <dd><%= @mail.from %></dd>
+    <% if @mail.reply_to %>
+      <dt>Reply-To:</dt>
+      <dd><%= @mail.reply_to %></dd>
+    <% end %>
+
+    <dt>Subject:</dt>
+    <dd><strong><%= @mail.subject %></strong></dd>
+
+    <dt>Date:</dt>
+    <dd><%= @mail.created_at.strftime("%b %e, %Y %I:%M:%S %p %Z") %></dd>
+
+    <dt>To:</dt>
+    <dd><%= @mail.to %></dd>
+  </dl>
+</div>
+<div id="formats">
+  <% if params[:as] != "html" && @mail.has_html? %>
+    <%= link_to "view html", logged_mail_path(@mail, :as => "html") %>
+  <% end %>
+  <% if params[:as] != "text" && @mail.has_text? %>
+    <%= link_to "view plaintext", logged_mail_path(@mail, :as => "text") %>
+  <% end %>
+</div>

@@ -1,0 +1,9 @@
+<% params[:as] ||= "html" %>
+<%= render 'headers' %>
+
+<% if params[:as] == "html" && @mail.html.present? %>
+  <%== @mail.html.body %>
+<% else %>
+  <pre id="message_body"><%= @mail.body.body %></pre>
+<% end %>
+
