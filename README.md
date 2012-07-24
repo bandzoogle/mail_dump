@@ -8,18 +8,18 @@ database, and then viewing them later.
 
 Add something like this to your routes:
 
-`if Rails.env.development?
+```if Rails.env.development?
   mount MailDump::Engine => '/mail_dump'
 end
-`
+```
 
 
 Then, add an something along these lines to config/initializers:
 
-`if  Rails.env.development?
+```if  Rails.env.development?
   ActionMailer::Base.register_interceptor(MailDump::LoggedMail)
 end
-`
+```
 
 You're set! Mails are viewable at /mail_dump.
 
