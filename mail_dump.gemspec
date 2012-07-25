@@ -13,7 +13,7 @@ Gem::Specification.new do |s|
   s.summary     = "Very simple rails engine for logging outgoing mails to the database, and viewing them later"
   s.description = "Very simple rails engine for logging outgoing mails to the database, and viewing them later"
 
-  s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.rdoc"]
+  s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.md"]
   s.test_files = Dir["test/**/*"]
 
   s.add_dependency "rails", "~> 3.2.6"
