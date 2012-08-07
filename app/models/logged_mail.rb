@@ -15,6 +15,7 @@ class LoggedMail < ActiveRecord::Base
     self.html.present?
   end
 
+  
   def self.delivering_email(message)
   	::LoggedMail.create(
 			:to => message.to,

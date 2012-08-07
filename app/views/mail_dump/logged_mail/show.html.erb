@@ -1,9 +1,14 @@
 <% params[:as] ||= "html" %>
 <%= render 'headers' %>
 
-<% if params[:as] == "html" && @mail.html.present? %>
+<% if params[:as] == "html" && @mail.has_html? %>
   <%== @mail.html.body %>
 <% else %>
-  <pre id="message_body"><%= @mail.body.body %></pre>
+  <pre id="message_body">
+    <% if @mail.has_text? %>
+      <%= @mail.body.body %>
+    <% else %>
+      (no body)
+    <% end %>
+  </pre>
 <% end %>
-
