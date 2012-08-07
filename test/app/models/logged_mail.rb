@@ -8,11 +8,11 @@ class LoggedMail < ActiveRecord::Base
   serialize :html
 
   def has_text?
-    self.body.present?
+    self.body.present? && self.body.body.present?
   end
 
   def has_html?
-    self.html.present?
+    self.html.present? && self.html.body.present?
   end
 
   def self.delivering_email(message)
