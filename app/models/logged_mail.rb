@@ -15,14 +15,32 @@ class LoggedMail < ActiveRecord::Base
     self.html.present?
   end
 
-  
-  def self.delivering_email(message)
-  	::LoggedMail.create(
-			:to => message.to,
-			:from => message.from,
-			:subject => message.subject,
-			:body => message.text_part,
-			:html => message.html_part
-  	)
+
+  #
+  # implement #delivered_mail observer to log mail after the fact
+  #
+  def self.delivered_email(message)
+    # firgure out if the body is html or text
+    if message.multipart?
+      html = message.html_part
+      text = message.text_part
+    else
+      if message.content_type =~ /text\/html/
+        html = message.body
+        text = nil
+      else
+        text = message.body
+        html = nil
+      end
+    end
+
+    ::LoggedMail.create(
+                        :to => message.to,
+                        :reply_to => message.reply_to,
+                        :from => message.from,
+                        :subject => message.subject,
+                        :body => text,
+                        :html => html
+                        )
   end
 end
