@@ -2,11 +2,11 @@
 <%= render 'headers' %>
 
 <% if params[:as] == "html" && @mail.has_html? %>
-  <%== @mail.html.to_s %>
+  <%== @mail.html.body.to_s %>
 <% else %>
   <pre id="message_body">
     <% if @mail.has_text? %>
-      <%= @mail.body.to_s %>
+      <%= @mail.body.body.to_s %>
     <% else %>
       (no body)
     <% end %>
