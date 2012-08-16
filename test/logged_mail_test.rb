@@ -59,6 +59,21 @@ class LoggedMailTest < ActiveSupport::TestCase
     assert_equal "<b>hi!</b>", result.html.body.to_s
   end
 
+  def test_delivered_mail_adds_raw
+    body = Mail::Part.new(:body => "hi!")
+    m = Mail.new(:to => "foo@foo.com", :from => "bar@bar.com", :subject => "subject")
+
+    m.text_part = Mail::Part.new do
+      body 'hi!'
+    end
+    m.html_part = Mail::Part.new do
+      body '<b>hi!</b>'
+    end
+    
+    result = LoggedMail.delivered_email(m)
+    assert_equal m.to_s, result.raw.to_s
+  end
+
   def test_single_part_parses_html
     m = Mail.new(:to => "foo@foo.com", :from => "bar@bar.com",
                  :subject => "subject", :body => "<b>hi!</b>",

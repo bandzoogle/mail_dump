@@ -24,4 +24,5 @@
   <% if params[:as] != "text" && @mail.has_text? %>
     <%= link_to "view plaintext", logged_mail_path(@mail, :as => "text") %>
   <% end %>
+  <%= link_to "view raw", logged_mail_path(@mail, :as => "raw") %>
 </div>

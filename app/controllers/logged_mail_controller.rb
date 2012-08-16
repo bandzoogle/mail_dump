@@ -12,4 +12,10 @@ class MailDump::LoggedMailController < ActionController::Base
       format.text { render :format => :html}
     end
   end
+
+  def raw
+    @mail = LoggedMail.find(params[:id])
+    render :show, :format => :raw
+  end
+
 end

@@ -1,5 +1,5 @@
 class LoggedMail < ActiveRecord::Base
-  attr_accessible :body, :from, :html, :subject, :to, :reply_to
+  attr_accessible :body, :from, :html, :raw, :subject, :to, :reply_to
 
   serialize :from
   serialize :reply_to
@@ -40,7 +40,8 @@ class LoggedMail < ActiveRecord::Base
                         :from => message.from,
                         :subject => message.subject,
                         :body => text,
-                        :html => html
+                        :html => html,
+                        :raw => message.to_s
                         )
   end
 end

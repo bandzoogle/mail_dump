@@ -3,7 +3,8 @@
 
 <% if params[:as] == "html" && @mail.has_html? %>
   <%== output_html @mail %>
-
+<% elsif params[:as] == "raw" %>
+  <pre><%= @mail.raw %></pre>
 <% else %>
   <pre id="message_body">
     <% if @mail.has_text? %>
