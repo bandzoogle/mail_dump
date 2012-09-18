@@ -15,7 +15,14 @@ class LoggedMail < ActiveRecord::Base
     self.html.present?
   end
 
+  def from_addresses
+    from.respond_to?(:join) ? from.join(',') : from
+  end
 
+  def to_addresses
+    to.respond_to?(:join) ? to.join(',') : to
+  end
+  
   #
   # implement #delivered_mail observer to log mail after the fact
   #

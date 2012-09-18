@@ -10,8 +10,8 @@
   </tr>
   <% @mails.each do |mail| -%>
   <tr>
-    <%= content_tag(:td, mail.from.join(',')) -%>
-    <%= content_tag(:td, mail.to.join(',')) -%>
+    <%= content_tag(:td, mail.from_addresses) -%>
+    <%= content_tag(:td, mail.to_addresses) -%>
     <%= content_tag(:td, mail.subject) -%>
     <%= content_tag(:td, mail.created_at) -%>
     <%= content_tag(:td, link_to('view', url_for(mail))) -%>
