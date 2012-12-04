@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    mail_dump (0.0.6)
+    mail_dump (0.0.7)
       kaminari (~> 0.13.0)
       rails (~> 3.2.6)
 
