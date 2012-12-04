@@ -2,8 +2,9 @@ PATH
   remote: .
   specs:
     mail_dump (0.0.8)
-      kaminari (~> 0.13.0)
-      rails (~> 3.2.6)
+      kaminari
+      mail
+      rails (>= 3.2.6)
 
 GEM
   remote: http://rubygems.org/
