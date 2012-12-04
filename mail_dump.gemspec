@@ -18,7 +18,7 @@ Gem::Specification.new do |s|
 
   s.add_dependency "rails", ">= 3.2.6"
   s.add_dependency "mail"
-  s.add_dependency "kaminari", ">= 0.13.0"
+  s.add_dependency "kaminari" #, ">= 0.13.0"
 
   s.add_development_dependency "sqlite3"
 end
