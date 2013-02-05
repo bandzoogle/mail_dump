@@ -1,3 +1,5 @@
+require 'mail/fields/common/address_container'
+
 class LoggedMail < ActiveRecord::Base
   attr_accessible :body, :from, :html, :raw, :subject, :to, :reply_to
 
