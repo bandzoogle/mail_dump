@@ -125,7 +125,7 @@ PLATFORMS
 DEPENDENCIES
   mail_dump!
   responders (~> 2.0)
-  sqlite3
+  sqlite3 (>= 1.3.13)
 
 BUNDLED WITH
    1.16.1

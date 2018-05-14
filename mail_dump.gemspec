@@ -21,5 +21,5 @@ Gem::Specification.new do |s|
   s.add_dependency "kaminari" #, ">= 0.13.0"
   s.add_dependency 'responders', '~> 2.0'
 
-  s.add_development_dependency "sqlite3"
+  s.add_development_dependency 'sqlite3', '>= 1.3.13'
 end
