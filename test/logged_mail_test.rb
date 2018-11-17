@@ -84,6 +84,6 @@ class LoggedMailTest < ActiveSupport::TestCase
 
     result = LoggedMail.delivered_email(m)
     assert_equal '<b>hi!</b>', result.html.to_s
-    assert_equal nil, result.body
+    assert_nil(result.body)
   end
 end
