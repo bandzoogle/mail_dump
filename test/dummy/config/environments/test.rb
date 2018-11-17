@@ -37,4 +37,7 @@ Dummy::Application.configure do
 
   # Use sorted test order
   config.active_support.test_order = :sorted
+
+  # Required for rails 5
+  config.eager_load = false
 end
